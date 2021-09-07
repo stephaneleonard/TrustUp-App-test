@@ -37,7 +37,7 @@ Future<Count> fetchRequestCount() async {
   );
   if (res.statusCode == 200) {
     final dynamic data = jsonDecode(res.body as String);
-    final Count count = Count.fromJson(data['data'] as Map<String, dynamic>);
+    final Count count = Count.fromJson(data['count'] as Map<String, dynamic>);
     return count;
   } else {
     throw Error();
