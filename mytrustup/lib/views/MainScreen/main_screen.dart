@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mytrustup/views/Accueil/accueil_screen.dart';
 import 'package:mytrustup/views/Demandes/demandes_screen.dart';
+import 'package:mytrustup/views/MainScreen/custom_drawer.dart';
 import 'package:mytrustup/views/Messages/messages_screen.dart';
 import 'package:mytrustup/views/Photos/photos_screen.dart';
 import 'package:mytrustup/widgets/logo.dart';
@@ -31,13 +32,11 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
         backgroundColor: Colors.white,
         title: const Logo(),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
+      drawer: const CustomDrawer(),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mytrustup/utils/theme.dart';
+import 'package:mytrustup/views/DemandesInfos/demande_infos_screen.dart';
 import 'package:mytrustup/views/MainScreen/main_screen.dart';
 
 void main() {
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
       home: MainScreen(),
+      routes: <String, Widget Function(BuildContext)>{
+        '/demande': (BuildContext context) => const DemandesInfosScreen(),
+      },
     );
   }
 }
