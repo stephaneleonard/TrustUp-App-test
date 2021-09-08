@@ -1,5 +1,8 @@
-class Requests {
-  Requests({
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+class Request {
+  Request({
     required this.id,
     required this.title,
     required this.status,
@@ -8,7 +11,7 @@ class Requests {
     this.address,
   });
 
-  Requests.fromJson(Map<String, dynamic> json) {
+  Request.fromJson(Map<String, dynamic> json) {
     id = json['id'] as int;
     title = json['title'] as String;
     user = json['user'] != null
@@ -51,4 +54,24 @@ class Address {
 
   late String city;
   late String postalCode;
+}
+
+Future<List<Request>> fetchRequest(String? type) async {
+  final List<Request> list = <Request>[];
+  final dynamic res = await http.get(
+    Uri.parse(
+        'https://stephane-leonard-test-flutter-api.trustup.dev/api/requests/${type ?? ''}'),
+  );
+  if (res.statusCode == 200) {
+    final dynamic data = jsonDecode(res.body as String);
+    data['requests'].forEach((dynamic v) {
+      try {
+        list.add(Request.fromJson(v as Map<String, dynamic>));
+        // ignore: empty_catches
+      } catch (e) {}
+    });
+    return list;
+  } else {
+    throw Error();
+  }
 }
