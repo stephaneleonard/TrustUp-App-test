@@ -2,7 +2,7 @@
 Test for the TrustUp app as a demo
 
 # Flutter version
-Tested on Flutter 2.2.2 with non-nullable enabled.
+Tested on Flutter  main channel currently on 2.2.3 with non-nullable enabled.
 
 # How to Use
 
@@ -30,6 +30,26 @@ Run the project using
 flutter run
 ```
 
+# How to Build for production
+
+To experience the real speed of the app it's needed to run it in release mode.
+
+**Step 1:**
+
+Build the apk
+
+```
+flutter build apk --release
+```
+
+**Step 2:**
+
+Install it on your android device
+
+```
+flutter install 
+```
+
 # Features
 - Bottom Navigation
 - Top Drawer
@@ -37,7 +57,7 @@ flutter run
 - Bloc state management
 - Api calls
 
-## Floder structure
+## Folder structure
 ```
 lib/
 - cubit: state management/ controller
@@ -48,6 +68,6 @@ lib/
 ```
 
 ## State management
-The state management was handeled using the Bloc package.
+The state management was handled using the Bloc package.
 
 
